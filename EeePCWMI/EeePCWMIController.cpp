@@ -124,8 +124,10 @@ void EeePCWMIController::enableEvent()
 	
 	if (super::setEvent(EEEPC_WMI_EVENT_GUID, true) != kIOReturnSuccess)
 		IOLog("Unable to enable events!!!\n");
-	else
-	{
+    // ignore setEvent by  lvs1974
+    
+	//else
+	//{
 		super::_keyboardDevice = new WMIHIKeyboardDevice;
 		
 		if ( !_keyboardDevice               ||
@@ -140,7 +142,7 @@ void EeePCWMIController::enableEvent()
 			_keyboardDevice->setKeyMap(keyMap);
 			_keyboardDevice->registerService();
 		}
-	}
+	//}
 	
 }
 
@@ -234,7 +236,7 @@ void EeePCWMIController::test()
 	static UInt32 status = 0;
 	UInt32 temp = status;
 	DbgLog("%s: setting cpufv to %d\n", this->getName(), (int)temp);
-	setDevice(EEEPC_WMI_MGMT_GUID, EEEPC_WMI_METHODID_CFVS, &temp);
+	//setDevice(EEEPC_WMI_MGMT_GUID, EEEPC_WMI_METHODID_CFVS, &temp);
 
 	status ++;
 	if (status > 2)

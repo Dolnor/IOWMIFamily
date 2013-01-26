@@ -94,12 +94,13 @@ IOReturn WMIHIKeyboard::message( UInt32 type, IOService * provider, void * argum
 			DbgLog("WMIHIKeyboard : key %x pressed :)\n", (unsigned int) code);
 			
 			AbsoluteTime now;
-			clock_get_uptime(&now);
+            uint64_t* pnow = reinterpret_cast<uint64_t*>(&now);
+			clock_get_uptime(pnow);
 			dispatchKeyboardEvent( code,
 								  /*direction*/ true,
 								  /*timeStamp*/ now );
 			
-			clock_get_uptime(&now);
+			clock_get_uptime(pnow);
 			dispatchKeyboardEvent( code,
 								  /*direction*/ false,
 								  /*timeStamp*/ now );

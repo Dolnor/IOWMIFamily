@@ -107,8 +107,8 @@ void HPWMIController::enableEvent()
 	
 	if (super::setEvent(HP_WMI_EVENT_GUID, true) != kIOReturnSuccess)
 		IOLog("Unable to enable events!!!\n");
-	else
-	{
+	//else
+	//{
 		super::_keyboardDevice = new WMIHIKeyboardDevice;
 		
 		if ( !_keyboardDevice               ||
@@ -123,7 +123,7 @@ void HPWMIController::enableEvent()
 			_keyboardDevice->setKeyMap(keyMap);
 			_keyboardDevice->registerService();
 		}
-	}
+	//}
 	
 }
 

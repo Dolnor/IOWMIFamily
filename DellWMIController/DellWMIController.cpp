@@ -114,8 +114,8 @@ void DellWMIController::enableEvent()
 	
 	if (super::setEvent(Dell_WMI_EVENT_GUID, true) != kIOReturnSuccess)
 		IOLog("Unable to enable events!!!\n");
-	else
-	{
+	//else
+	//{
 		super::_keyboardDevice = new WMIHIKeyboardDevice;
 		
 		if ( !_keyboardDevice               ||
@@ -130,7 +130,7 @@ void DellWMIController::enableEvent()
 			_keyboardDevice->setKeyMap(keyMap);
 			_keyboardDevice->registerService();
 		}
-	}
+	//}
 	
 }
 

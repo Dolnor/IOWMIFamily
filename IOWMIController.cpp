@@ -437,14 +437,23 @@ IOReturn IOWMIController::message( UInt32 type, IOService * provider, void * arg
 	if (type == kIOACPIMessageDeviceNotification)
 	{
 		UInt32 event = *((UInt32 *) argument);
-		OSObject * wed;
 		
 		OSNumber * number = OSNumber::withNumber(event,32);
+        
+        if (NULL != number)
+            handleMessage(number->unsigned32BitValue());
+        
+        OSObject * wed;
 		WMIDevice->evaluateObject("_WED", &wed, (OSObject**)&number,1);
 		number->release();
-		
-		number = OSDynamicCast(OSNumber, wed);
-		if (NULL == number)
+        
+        // implement check for NULL wed by lvs1974
+        number = NULL;
+        
+		if (NULL != wed)
+            number = OSDynamicCast(OSNumber, wed);
+        
+		if (NULL != wed && NULL == number)
         {
             //try a package
             OSArray * array = OSDynamicCast(OSArray, wed);
@@ -470,8 +479,12 @@ IOReturn IOWMIController::message( UInt32 type, IOService * provider, void * arg
                 }
             }
         }
-				
-		handleMessage(number->unsigned32BitValue());
+		
+		if (NULL != number)
+        {
+            handleMessage(number->unsigned32BitValue());
+            number->release();
+        }
 	}
 	else
 	{	// Someone unexpected is sending us messages!
@@ -484,7 +497,8 @@ IOReturn IOWMIController::message( UInt32 type, IOService * provider, void * arg
 
 void IOWMIController::handleMessage(int code)
 {
-	_keyboardDevice->keyPressed(code);
+    if (_keyboardDevice)
+        _keyboardDevice->keyPressed(code);
 }
 
 
