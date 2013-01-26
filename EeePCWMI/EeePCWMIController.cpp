@@ -236,7 +236,7 @@ void EeePCWMIController::test()
 	static UInt32 status = 0;
 	UInt32 temp = status;
 	DbgLog("%s: setting cpufv to %d\n", this->getName(), (int)temp);
-	//setDevice(EEEPC_WMI_MGMT_GUID, EEEPC_WMI_METHODID_CFVS, &temp);
+	setDevice(EEEPC_WMI_MGMT_GUID, EEEPC_WMI_METHODID_CFVS, &temp);
 
 	status ++;
 	if (status > 2)
