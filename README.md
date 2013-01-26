@@ -74,6 +74,7 @@ Remove any other hotkey driver before trying it ! I.e. remove, rebuild kext cach
 EC queries usually call for WMI notifications and send messages that need handling. Not all the keys on newer Dell machines utilize WMI, some are still tied to plain old PS/2 scancodes. For my particular laptop (Vostro 3450) only brightness keys are tied to WMI and do not generate regular scancodes when pressed. Here's an overview:
 
 Decrease brighntess:
+
 			Method (_Q80, 0, NotSerialized)
 			{
             	....
@@ -96,7 +97,8 @@ Decrease brighntess:
                 }
           	} 
           	
-Increase brighntess:                     
+Increase brighntess: 
+                    
 			Method (_Q81, 0, NotSerialized)
 			{                                        
             	....

@@ -20,7 +20,7 @@
 
 #include "WMIHIKeyboardDevice.h"
 #include "IOWMIController.h"
-
+#include "debug.h"
 
 #define super IOService
 OSDefineMetaClassAndStructors(WMIHIKeyboardDevice, IOService);
@@ -56,13 +56,14 @@ void WMIHIKeyboardDevice::keyPressed(int code)
 	{
 		if (keyMap[i].description == NULL && keyMap[i].in == 0 && keyMap[i].out == 0xFF)
 		{
-			IOLog("%s: Unknown key %02X i=%d\n",this->getName(), code, i);
+			DbgLog("%s: Unknown key %02X i=%d\n",this->getName(), code, i);
 			break;
 		}
 		if (keyMap[i].in == code)
 		{
 			out = keyMap[i].out;
 			messageClients(kIOACPIMessageDeviceNotification, &out);
+            DbgLog("%s: Key Pressed %02X i=%d\n",this->getName(), code, i);
 			break;
 		}
 		i++;
@@ -76,12 +77,13 @@ void WMIHIKeyboardDevice::setKeyMap(const wmiKeyMap *_keyMap)
 	int i = 0;
 	keyMap = _keyMap;
 	OSDictionary *dict = OSDictionary::withCapacity(10);
-	
+    
 	do
 	{
 		if (keyMap[i].description == NULL && keyMap[i].in == 0 && keyMap[i].out == 0xFF)
 			break;
 		dict->setObject(keyMap[i].description, OSNumber::withNumber(keyMap[i].in,8));
+        DbgLog("%s: Setting key %02X i=%d\n",this->getName(), keyMap[i].in, i);
 		i++;
 	}
 	while (true);

@@ -387,7 +387,7 @@ bool IOWMIController::start(IOService *provider)
 	
 	WMIDevice = (IOACPIPlatformDevice *) provider;		// ACPI device
 	
-	IOLog("%s: WMI driver version 1.0\tDevice name: %s\n", this->getName(), WMIDevice->getName());
+	IOLog("%s: WMI Device: %s\n", this->getName(), WMIDevice->getName());
 	
 	_keyboardDevice = NULL;
 	
@@ -447,6 +447,7 @@ IOReturn IOWMIController::message( UInt32 type, IOService * provider, void * arg
             if (0xD0 == number->unsigned32BitValue())
             {
                 isNewDell = true;
+                DbgLog("%s: Detected Dell WMI notification, will parse INF2 from INFO buffer\n", this->getName());
             }
             else 
                 handleMessage(number->unsigned32BitValue());
@@ -476,8 +477,8 @@ IOReturn IOWMIController::message( UInt32 type, IOService * provider, void * arg
                     return kIOReturnError;
                 }
                 const char * bytes = (const char *) data->getBytesNoCopy();
-                // Dell uses Buffer INFO, parse INF2 to obtain the code for message handling
-                if (isNewDell) 
+
+                if (isNewDell) // Dell uses Buffer INFO, parse INF2 to obtain the code for message handling
                     number = OSNumber::withNumber(bytes[4],32);
                 else
                     number = OSNumber::withNumber(bytes[0],32);
