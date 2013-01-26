@@ -91,7 +91,7 @@ IOReturn WMIHIKeyboard::message( UInt32 type, IOService * provider, void * argum
 		
 		{
 			UInt32 code = *((UInt32 *) argument);
-			DbgLog("WMIHIKeyboard : key %x pressed :)\n", (unsigned int) code);
+			DbgLog("WMIHIKeyboard : key %x pressed\n", (unsigned int) code);
 			
 			AbsoluteTime now;
             uint64_t* pnow = reinterpret_cast<uint64_t*>(&now);

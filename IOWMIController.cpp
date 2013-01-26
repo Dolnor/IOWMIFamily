@@ -472,7 +472,7 @@ IOReturn IOWMIController::message( UInt32 type, IOService * provider, void * arg
                 OSData * data = OSDynamicCast(OSData, wed);
                 if ( (NULL == data) || (data->getLength() == 0))
                 {
-                    IOLog("%s: Fail to cast _WED returned objet %s\n", this->getName(), wed->getMetaClass()->getClassName());
+                    IOLog("%s: Failed to cast. _WED returned objet %s\n", this->getName(), wed->getMetaClass()->getClassName());
                     return kIOReturnError;
                 }
                 const char * bytes = (const char *) data->getBytesNoCopy();
@@ -487,7 +487,7 @@ IOReturn IOWMIController::message( UInt32 type, IOService * provider, void * arg
                 number = OSDynamicCast(OSNumber, array->getObject(0));
                 if (NULL == number)
                 {
-                    IOLog("%s: Fail to cast _WED returned 1st objet in array %s\n", this->getName(), array->getObject(0)->getMetaClass()->getClassName());
+                    IOLog("%s: Failed to cast. _WED returned first array element %s\n", this->getName(), array->getObject(0)->getMetaClass()->getClassName());
                     return kIOReturnError;
                 }
             }

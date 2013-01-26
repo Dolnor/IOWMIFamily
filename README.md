@@ -69,11 +69,11 @@ Remove any other hotkey driver before trying it ! I.e. remove, rebuild kext cach
 	BRIGHTNESS_UP (0x02),
 	BRIGHTNESS_DOWN (0x03)
 
-## Quick recap about newer Dell machines
+## WMI on newer Dell machines
 
-EC queries usially call for WMI notifications, not all the keys on newer Dell machines utilize WMI, some are still tied to plain old PS/2 scancodes. For my particular laptop only brightness keys are tied to WMI. Here's an overview:
+EC queries usually call for WMI notifications and send messages that need handling. Not all the keys on newer Dell machines utilize WMI, some are still tied to plain old PS/2 scancodes. For my particular laptop (Vostro 3450) only brightness keys are tied to WMI and do not generate regular scancodes when pressed. Here's an overview:
 
-			//decrease brighntess
+Decrease brighntess:
 			Method (_Q80, 0, NotSerialized)
 			{
             	....
@@ -87,16 +87,16 @@ EC queries usially call for WMI notifications, not all the keys on newer Dell ma
                 	Store (Local0, BRGD) //store brightness level into register for DC brightness
                 }
             	Store (0x03, ^^^^AMW0.INF0)
-            	Store (Zero, ^^^^AMW0.INF1)
-            	Store (0xE005, ^^^^AMW0.INF2) //0xE005 is a notification to decrease brightness
+            	Store (0x00, ^^^^AMW0.INF1)
+            	Store (0xE005, ^^^^AMW0.INF2) //0xE005 is a message to decrease brightness
             	Store (Local0, ^^^^AMW0.INF3) //to a desired brightness level
             	If (LEqual (DMFG, Zero))
             	{
-                	Notify (AMW0, 0xD0)
+                	Notify (AMW0, 0xD0) //notify to perform action
                 }
           	} 
           	
-          	//increase brighntess                     
+Increase brighntess:                     
 			Method (_Q81, 0, NotSerialized)
 			{                                        
             	....
@@ -110,12 +110,12 @@ EC queries usially call for WMI notifications, not all the keys on newer Dell ma
                 	Store (Local0, BRGD)
                 }
             	Store (0x03, ^^^^AMW0.INF0)
-            	Store (Zero, ^^^^AMW0.INF1)
-            	Store (0xE006, ^^^^AMW0.INF2) //0xE006 is a notification to increase brightness
+            	Store (0x00, ^^^^AMW0.INF1)
+            	Store (0xE006, ^^^^AMW0.INF2) //0xE006 is a message to increase brightness
             	Store (Local0, ^^^^AMW0.INF3) //to a desired brightness level
             	If (LEqual (DMFG, Zero))
             	{
-                	Notify (AMW0, 0xD0)
+                	Notify (AMW0, 0xD0) //notify to perform action
                 }
             }
             
@@ -128,21 +128,22 @@ Now let's see how WMI reacts to these notifications from EC queries:
                     Return (INFO) //so array INFO is being returned after each query
                 }
                 CLBY (INFO)
-                Store (Arg0, INFO)
+                Store (Arg0, INFO) //then argument (0xD0 as well) is stored in buffer, overweriting INF0
                 Return (INFO)
             }
+
+This means that first some value (in brightness control scenario it's 0x03) is being written into INF0 from within EC queries, then _WED returs it once, then returs 0xD0 again after INF0 is overwritten.            
             
-Array called INFO is being returned from _WED either way. As this driver analyzes the output from _WED's 0-index, in both cases it would get a value of 0x03, because it's written to AMW0.INF0 in both Q80 and Q81 queries. This 0x03 doesn't correspond to any predefined values in plugins, so nothing would happen.
+As this IOWMIFamily driver analyzes the output from _WED's first element (0 array element), in both cases it would get a value of 0x03 and 0xD0. Neither of those correspond to any predefined hotkey codes in plugins, so nothing happens.
             
             Name (INFO, Buffer (0x80) {})
-            CreateWordField (INFO, Zero, INF0)
+            CreateWordField (INFO, 0x00, INF0)
             CreateWordField (INFO, 0x02, INF1)
-            CreateWordField (INFO, 0x04, INF2)             
-            CreateWordField (INFO, 0x06, INF3)
+            CreateWordField (INFO, 0x04, INF2)          
+            CreateWordField (INFO, 0x06, INF3) 
             CreateWordField (INFO, 0x08, INF4)
             CreateWordField (INFO, 0x0A, INF5)
             CreateWordField (INFO, 0x0C, INF6)
             CreateWordField (INFO, 0x0E, INF7)
             
-INF2 is the 4th and 5th byte of this INFO array returned by _WED, this one holds the code we are interested to see from the driver to be able to perform certaina ction. So our "scancode" that kext expects to see results has to be coded in like:
-number = OSDynamicCast(OSNumber, array->getObject(4))           
+INF2 is the 4th and 5th byte of this INFO buffer returned by _WED, this one holds the code we are interested to parse by driver to be able to perform certain action.        
