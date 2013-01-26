@@ -436,12 +436,21 @@ IOReturn IOWMIController::message( UInt32 type, IOService * provider, void * arg
 {
 	if (type == kIOACPIMessageDeviceNotification)
 	{
-		UInt32 event = *((UInt32 *) argument);
+		bool isNewDell = false;
+        UInt32 event = *((UInt32 *) argument);
 		
 		OSNumber * number = OSNumber::withNumber(event,32);
         
         if (NULL != number)
-            handleMessage(number->unsigned32BitValue());
+        {
+            //avoid parsing Dell's default AMW0 notification, set a flag to threat separately
+            if (0xD0 == number->unsigned32BitValue())
+            {
+                isNewDell = true;
+            }
+            else 
+                handleMessage(number->unsigned32BitValue());
+        }
         
         OSObject * wed;
 		WMIDevice->evaluateObject("_WED", &wed, (OSObject**)&number,1);
@@ -467,7 +476,11 @@ IOReturn IOWMIController::message( UInt32 type, IOService * provider, void * arg
                     return kIOReturnError;
                 }
                 const char * bytes = (const char *) data->getBytesNoCopy();
-                number = OSNumber::withNumber(bytes[0],32);
+                // Dell uses Buffer INFO, parse INF2 to obtain the code for message handling
+                if (isNewDell) 
+                    number = OSNumber::withNumber(bytes[4],32);
+                else
+                    number = OSNumber::withNumber(bytes[0],32);
             }
             else
             {
