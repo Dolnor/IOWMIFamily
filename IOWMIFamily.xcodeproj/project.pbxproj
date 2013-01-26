@@ -1,0 +1,732 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7100A7C11306A50A00FF50E3 /* EeePCWMIController.kext in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7107023B12BE76DA0069968D /* EeePCWMIController.kext */; };
+		710CFE9812FF0C3600D4C242 /* EeePCWMIController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 710CFE9612FF0C3600D4C242 /* EeePCWMIController.cpp */; };
+		712EDD99142625DD00F4216A /* DellWMIController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 712EDD98142625DD00F4216A /* DellWMIController.cpp */; };
+		712EDDA014262A0A00F4216A /* DellWMIController.kext in CopyFiles */ = {isa = PBXBuildFile; fileRef = 712EDD8C142625DD00F4216A /* DellWMIController.kext */; };
+		712EDDB714263AF000F4216A /* HPWMIController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 712EDDB614263AF000F4216A /* HPWMIController.cpp */; };
+		712EDDBE14263B9900F4216A /* HPWMIController.kext in CopyFiles */ = {isa = PBXBuildFile; fileRef = 712EDDAD14263AF000F4216A /* HPWMIController.kext */; };
+		71F79672130857A500550733 /* NVWMIController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71F7965D1308575F00550733 /* NVWMIController.cpp */; };
+		71F79676130857BF00550733 /* NVWMIController.kext in CopyFiles */ = {isa = PBXBuildFile; fileRef = 71F796621308578B00550733 /* NVWMIController.kext */; };
+		71F7B43F12B6AB4700E8E523 /* IOWMIController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 712320B912B29EA900B13C45 /* IOWMIController.cpp */; };
+		71F7B44312B6AB4700E8E523 /* WMIHIKeyboard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71FEBB3A12B3A57A00E69A1F /* WMIHIKeyboard.cpp */; };
+		71F7B44512B6AB4700E8E523 /* WMIHIKeyboardDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71FEBB6612B3B25600E69A1F /* WMIHIKeyboardDevice.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		710CFE9012FF07FF00D4C242 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 71F7B44912B6AB7500E8E523;
+			remoteInfo = EeePCWMIController;
+		};
+		712EDD9E142629FD00F4216A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 712EDD8B142625DD00F4216A;
+			remoteInfo = DellWMIController;
+		};
+		712EDDBC14263B9000F4216A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 712EDDAC14263AF000F4216A;
+			remoteInfo = HPWMIController;
+		};
+		71F79673130857AE00550733 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 71F796611308578B00550733;
+			remoteInfo = NVWMI;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7100A7B81306A4E600FF50E3 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				712EDDBE14263B9900F4216A /* HPWMIController.kext in CopyFiles */,
+				712EDDA014262A0A00F4216A /* DellWMIController.kext in CopyFiles */,
+				71F79676130857BF00550733 /* NVWMIController.kext in CopyFiles */,
+				7100A7C11306A50A00FF50E3 /* EeePCWMIController.kext in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		32D94FD00562CBF700B6AF17 /* IOWMIFamily.kext */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IOWMIFamily.kext; sourceTree = BUILT_PRODUCTS_DIR; };
+		7107023B12BE76DA0069968D /* EeePCWMIController.kext */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EeePCWMIController.kext; sourceTree = BUILT_PRODUCTS_DIR; };
+		710CFE9612FF0C3600D4C242 /* EeePCWMIController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EeePCWMIController.cpp; path = EeePCWMI/EeePCWMIController.cpp; sourceTree = "<group>"; };
+		710CFE9712FF0C3600D4C242 /* EeePCWMIController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EeePCWMIController.h; path = EeePCWMI/EeePCWMIController.h; sourceTree = "<group>"; };
+		712320B812B29EA900B13C45 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		712320B912B29EA900B13C45 /* IOWMIController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IOWMIController.cpp; sourceTree = "<group>"; };
+		712320BA12B29EA900B13C45 /* IOWMIController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOWMIController.h; sourceTree = "<group>"; };
+		712320BB12B29EA900B13C45 /* version.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = version.plist; sourceTree = "<group>"; };
+		712EDD8C142625DD00F4216A /* DellWMIController.kext */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DellWMIController.kext; sourceTree = BUILT_PRODUCTS_DIR; };
+		712EDD8F142625DD00F4216A /* Kernel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kernel.framework; path = System/Library/Frameworks/Kernel.framework; sourceTree = SDKROOT; };
+		712EDD92142625DD00F4216A /* DellWMIController-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "DellWMIController-Info.plist"; path = "DellWMIController/DellWMIController-Info.plist"; sourceTree = "<group>"; };
+		712EDD96142625DD00F4216A /* DellWMIController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DellWMIController.h; path = DellWMIController/DellWMIController.h; sourceTree = "<group>"; };
+		712EDD98142625DD00F4216A /* DellWMIController.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = DellWMIController.cpp; path = DellWMIController/DellWMIController.cpp; sourceTree = "<group>"; };
+		712EDDAD14263AF000F4216A /* HPWMIController.kext */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HPWMIController.kext; sourceTree = BUILT_PRODUCTS_DIR; };
+		712EDDB014263AF000F4216A /* HPWMIController-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "HPWMIController-Info.plist"; path = "HPWMIController/HPWMIController-Info.plist"; sourceTree = "<group>"; };
+		712EDDB414263AF000F4216A /* HPWMIController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HPWMIController.h; sourceTree = "<group>"; };
+		712EDDB614263AF000F4216A /* HPWMIController.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HPWMIController.cpp; sourceTree = "<group>"; };
+		71EDD7471306BEC800152E3F /* debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = debug.h; sourceTree = "<group>"; };
+		71F796521308562E00550733 /* acer-wmi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "acer-wmi.c"; path = "linux/acer-wmi.c"; sourceTree = "<group>"; };
+		71F796531308562E00550733 /* acer-wmi.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "acer-wmi.txt"; path = "linux/acer-wmi.txt"; sourceTree = "<group>"; };
+		71F796541308562E00550733 /* dell-wmi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "dell-wmi.c"; path = "linux/dell-wmi.c"; sourceTree = "<group>"; };
+		71F796551308562E00550733 /* eeepc-wmi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "eeepc-wmi.c"; path = "linux/eeepc-wmi.c"; sourceTree = "<group>"; };
+		71F796561308562E00550733 /* hp-wmi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "hp-wmi.c"; path = "linux/hp-wmi.c"; sourceTree = "<group>"; };
+		71F796571308562E00550733 /* msi-wmi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "msi-wmi.c"; path = "linux/msi-wmi.c"; sourceTree = "<group>"; };
+		71F796581308562E00550733 /* wmi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = wmi.c; path = linux/wmi.c; sourceTree = "<group>"; };
+		71F7965C1308575F00550733 /* NVWMIController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NVWMIController.h; path = NVWMI/NVWMIController.h; sourceTree = "<group>"; };
+		71F7965D1308575F00550733 /* NVWMIController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NVWMIController.cpp; path = NVWMI/NVWMIController.cpp; sourceTree = "<group>"; };
+		71F796621308578B00550733 /* NVWMIController.kext */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NVWMIController.kext; sourceTree = BUILT_PRODUCTS_DIR; };
+		71F796631308578B00550733 /* NVWMIController-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NVWMIController-Info.plist"; sourceTree = "<group>"; };
+		71F7B44B12B6AB7500E8E523 /* EeePCWMIController-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EeePCWMIController-Info.plist"; sourceTree = "<group>"; };
+		71FEBB3912B3A57A00E69A1F /* WMIHIKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMIHIKeyboard.h; sourceTree = "<group>"; };
+		71FEBB3A12B3A57A00E69A1F /* WMIHIKeyboard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WMIHIKeyboard.cpp; sourceTree = "<group>"; };
+		71FEBB6512B3B25600E69A1F /* WMIHIKeyboardDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMIHIKeyboardDevice.h; sourceTree = "<group>"; };
+		71FEBB6612B3B25600E69A1F /* WMIHIKeyboardDevice.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WMIHIKeyboardDevice.cpp; sourceTree = "<group>"; };
+		8DA8362C06AD9B9200E5AC22 /* Kernel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kernel.framework; path = /System/Library/Frameworks/Kernel.framework; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		089C166AFE841209C02AAC07 /* test */ = {
+			isa = PBXGroup;
+			children = (
+				247142CAFF3F8F9811CA285C /* Source */,
+				8DA8362C06AD9B9200E5AC22 /* Kernel.framework */,
+				712EDD8D142625DD00F4216A /* Frameworks */,
+				19C28FB6FE9D52B211CA2CBB /* Products */,
+				71F796631308578B00550733 /* NVWMIController-Info.plist */,
+				712EDDB014263AF000F4216A /* HPWMIController-Info.plist */,
+				71F7B44B12B6AB7500E8E523 /* EeePCWMIController-Info.plist */,
+				712EDD92142625DD00F4216A /* DellWMIController-Info.plist */,
+				712320B812B29EA900B13C45 /* Info.plist */,
+				712320BB12B29EA900B13C45 /* version.plist */,
+			);
+			name = test;
+			sourceTree = "<group>";
+		};
+		19C28FB6FE9D52B211CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				32D94FD00562CBF700B6AF17 /* IOWMIFamily.kext */,
+				7107023B12BE76DA0069968D /* EeePCWMIController.kext */,
+				71F796621308578B00550733 /* NVWMIController.kext */,
+				712EDD8C142625DD00F4216A /* DellWMIController.kext */,
+				712EDDAD14263AF000F4216A /* HPWMIController.kext */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		247142CAFF3F8F9811CA285C /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				710701C112BE4FA70069968D /* HotKey */,
+				7107013112BE39BB0069968D /* ref */,
+				712EDD851426258900F4216A /* DellWMI */,
+				712EDDAE14263AF000F4216A /* HPWMI */,
+				71F7965B1308572800550733 /* NVWMI */,
+				7107013712BE39DA0069968D /* EeePCWMI */,
+				71DD300812B3FA62009EB662 /* WMI */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		7107012E12BE39A40069968D /* kbd */ = {
+			isa = PBXGroup;
+			children = (
+				71FEBB3912B3A57A00E69A1F /* WMIHIKeyboard.h */,
+				71FEBB3A12B3A57A00E69A1F /* WMIHIKeyboard.cpp */,
+				71FEBB6512B3B25600E69A1F /* WMIHIKeyboardDevice.h */,
+				71FEBB6612B3B25600E69A1F /* WMIHIKeyboardDevice.cpp */,
+			);
+			name = kbd;
+			sourceTree = "<group>";
+		};
+		7107013112BE39BB0069968D /* ref */ = {
+			isa = PBXGroup;
+			children = (
+				71F796521308562E00550733 /* acer-wmi.c */,
+				71F796531308562E00550733 /* acer-wmi.txt */,
+				71F796541308562E00550733 /* dell-wmi.c */,
+				71F796551308562E00550733 /* eeepc-wmi.c */,
+				71F796561308562E00550733 /* hp-wmi.c */,
+				71F796571308562E00550733 /* msi-wmi.c */,
+				71F796581308562E00550733 /* wmi.c */,
+			);
+			name = ref;
+			sourceTree = "<group>";
+		};
+		7107013712BE39DA0069968D /* EeePCWMI */ = {
+			isa = PBXGroup;
+			children = (
+				710CFE9712FF0C3600D4C242 /* EeePCWMIController.h */,
+				710CFE9612FF0C3600D4C242 /* EeePCWMIController.cpp */,
+			);
+			name = EeePCWMI;
+			sourceTree = "<group>";
+		};
+		710701C112BE4FA70069968D /* HotKey */ = {
+			isa = PBXGroup;
+			children = (
+				7107012E12BE39A40069968D /* kbd */,
+			);
+			name = HotKey;
+			sourceTree = "<group>";
+		};
+		712EDD851426258900F4216A /* DellWMI */ = {
+			isa = PBXGroup;
+			children = (
+				712EDD96142625DD00F4216A /* DellWMIController.h */,
+				712EDD98142625DD00F4216A /* DellWMIController.cpp */,
+			);
+			name = DellWMI;
+			sourceTree = "<group>";
+		};
+		712EDD8D142625DD00F4216A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				712EDD8E142625DD00F4216A /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		712EDD8E142625DD00F4216A /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				712EDD8F142625DD00F4216A /* Kernel.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		712EDDAE14263AF000F4216A /* HPWMI */ = {
+			isa = PBXGroup;
+			children = (
+				712EDDB414263AF000F4216A /* HPWMIController.h */,
+				712EDDB614263AF000F4216A /* HPWMIController.cpp */,
+			);
+			name = HPWMI;
+			path = HPWMIController;
+			sourceTree = "<group>";
+		};
+		71DD300812B3FA62009EB662 /* WMI */ = {
+			isa = PBXGroup;
+			children = (
+				71EDD7471306BEC800152E3F /* debug.h */,
+				712320BA12B29EA900B13C45 /* IOWMIController.h */,
+				712320B912B29EA900B13C45 /* IOWMIController.cpp */,
+			);
+			name = WMI;
+			sourceTree = "<group>";
+		};
+		71F7965B1308572800550733 /* NVWMI */ = {
+			isa = PBXGroup;
+			children = (
+				71F7965C1308575F00550733 /* NVWMIController.h */,
+				71F7965D1308575F00550733 /* NVWMIController.cpp */,
+			);
+			name = NVWMI;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		32D94FC30562CBF700B6AF17 /* IOWMIFamily */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB91D908733DB10010E9CD /* Build configuration list for PBXNativeTarget "IOWMIFamily" */;
+			buildPhases = (
+				32D94FC90562CBF700B6AF17 /* Sources */,
+				7100A7B81306A4E600FF50E3 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				712EDDBD14263B9000F4216A /* PBXTargetDependency */,
+				712EDD9F142629FD00F4216A /* PBXTargetDependency */,
+				71F79674130857AE00550733 /* PBXTargetDependency */,
+				710CFE9112FF07FF00D4C242 /* PBXTargetDependency */,
+			);
+			name = IOWMIFamily;
+			productInstallPath = "$(SYSTEM_LIBRARY_DIR)/Extensions";
+			productName = test;
+			productReference = 32D94FD00562CBF700B6AF17 /* IOWMIFamily.kext */;
+			productType = "com.apple.product-type.kernel-extension.iokit";
+		};
+		712EDD8B142625DD00F4216A /* DellWMIController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 712EDD9B142625DD00F4216A /* Build configuration list for PBXNativeTarget "DellWMIController" */;
+			buildPhases = (
+				712EDD86142625DD00F4216A /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DellWMIController;
+			productName = DellWMIController;
+			productReference = 712EDD8C142625DD00F4216A /* DellWMIController.kext */;
+			productType = "com.apple.product-type.kernel-extension";
+		};
+		712EDDAC14263AF000F4216A /* HPWMIController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 712EDDB914263AF000F4216A /* Build configuration list for PBXNativeTarget "HPWMIController" */;
+			buildPhases = (
+				712EDDA714263AF000F4216A /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HPWMIController;
+			productName = HPWMIController;
+			productReference = 712EDDAD14263AF000F4216A /* HPWMIController.kext */;
+			productType = "com.apple.product-type.kernel-extension";
+		};
+		71F796611308578B00550733 /* NVWMIController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 71F796661308578C00550733 /* Build configuration list for PBXNativeTarget "NVWMIController" */;
+			buildPhases = (
+				71F7965E1308578B00550733 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NVWMIController;
+			productName = NVWMI;
+			productReference = 71F796621308578B00550733 /* NVWMIController.kext */;
+			productType = "com.apple.product-type.kernel-extension.iokit";
+		};
+		71F7B44912B6AB7500E8E523 /* EeePCWMIController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 71F7B44E12B6AB7500E8E523 /* Build configuration list for PBXNativeTarget "EeePCWMIController" */;
+			buildPhases = (
+				71F7B44612B6AB7500E8E523 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EeePCWMIController;
+			productName = EeePCWMIController;
+			productReference = 7107023B12BE76DA0069968D /* EeePCWMIController.kext */;
+			productType = "com.apple.product-type.kernel-extension.iokit";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		089C1669FE841209C02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0410;
+			};
+			buildConfigurationList = 1DEB91DD08733DB10010E9CD /* Build configuration list for PBXProject "IOWMIFamily" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+				en,
+			);
+			mainGroup = 089C166AFE841209C02AAC07 /* test */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				32D94FC30562CBF700B6AF17 /* IOWMIFamily */,
+				71F7B44912B6AB7500E8E523 /* EeePCWMIController */,
+				71F796611308578B00550733 /* NVWMIController */,
+				712EDD8B142625DD00F4216A /* DellWMIController */,
+				712EDDAC14263AF000F4216A /* HPWMIController */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		32D94FC90562CBF700B6AF17 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71F7B43F12B6AB4700E8E523 /* IOWMIController.cpp in Sources */,
+				71F7B44312B6AB4700E8E523 /* WMIHIKeyboard.cpp in Sources */,
+				71F7B44512B6AB4700E8E523 /* WMIHIKeyboardDevice.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		712EDD86142625DD00F4216A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				712EDD99142625DD00F4216A /* DellWMIController.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		712EDDA714263AF000F4216A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				712EDDB714263AF000F4216A /* HPWMIController.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71F7965E1308578B00550733 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71F79672130857A500550733 /* NVWMIController.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71F7B44612B6AB7500E8E523 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				710CFE9812FF0C3600D4C242 /* EeePCWMIController.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		710CFE9112FF07FF00D4C242 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 71F7B44912B6AB7500E8E523 /* EeePCWMIController */;
+			targetProxy = 710CFE9012FF07FF00D4C242 /* PBXContainerItemProxy */;
+		};
+		712EDD9F142629FD00F4216A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 712EDD8B142625DD00F4216A /* DellWMIController */;
+			targetProxy = 712EDD9E142629FD00F4216A /* PBXContainerItemProxy */;
+		};
+		712EDDBD14263B9000F4216A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 712EDDAC14263AF000F4216A /* HPWMIController */;
+			targetProxy = 712EDDBC14263B9000F4216A /* PBXContainerItemProxy */;
+		};
+		71F79674130857AE00550733 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 71F796611308578B00550733 /* NVWMIController */;
+			targetProxy = 71F79673130857AE00550733 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB91DA08733DB10010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1.0.0d1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions";
+				MODULE_NAME = com.yourcompany.driver.test;
+				MODULE_VERSION = 1.0.0d1;
+				PRODUCT_NAME = IOWMIFamily;
+				WRAPPER_EXTENSION = kext;
+			};
+			name = Debug;
+		};
+		1DEB91DB08733DB10010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CURRENT_PROJECT_VERSION = 1.0.0d1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_MODEL_TUNING = G5;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions";
+				MODULE_NAME = com.yourcompany.driver.test;
+				MODULE_VERSION = 1.0.0d1;
+				PRODUCT_NAME = IOWMIFamily;
+				WRAPPER_EXTENSION = kext;
+			};
+			name = Release;
+		};
+		1DEB91DE08733DB10010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = macosx;
+				VALID_ARCHS = "i386 x86_64";
+			};
+			name = Debug;
+		};
+		1DEB91DF08733DB10010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = macosx;
+				VALID_ARCHS = "i386 x86_64";
+			};
+			name = Release;
+		};
+		712EDD9C142625DD00F4216A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1.0.0d1;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				INFOPLIST_FILE = "DellWMIController/DellWMIController-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MODULE_NAME = com.darwin.driver.DellWMIController;
+				MODULE_VERSION = 1.0.0d1;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = kext;
+			};
+			name = Debug;
+		};
+		712EDD9D142625DD00F4216A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 1.0.0d1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				INFOPLIST_FILE = "DellWMIController/DellWMIController-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MODULE_NAME = com.darwin.driver.DellWMIController;
+				MODULE_VERSION = 1.0.0d1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = kext;
+			};
+			name = Release;
+		};
+		712EDDBA14263AF000F4216A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1.0.0d1;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				INFOPLIST_FILE = "HPWMIController/HPWMIController-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MODULE_NAME = com.darwin.driver.HPWMIController;
+				MODULE_VERSION = 1.0.0d1;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = kext;
+			};
+			name = Debug;
+		};
+		712EDDBB14263AF000F4216A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 1.0.0d1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				INFOPLIST_FILE = "HPWMIController/HPWMIController-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MODULE_NAME = com.darwin.driver.HPWMIController;
+				MODULE_VERSION = 1.0.0d1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = kext;
+			};
+			name = Release;
+		};
+		71F796641308578C00550733 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INFOPLIST_FILE = "NVWMIController-Info.plist";
+				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions";
+				MODULE_NAME = com.yourcompany.driver.NVWMI;
+				MODULE_VERSION = 1.0.0d1;
+				PRODUCT_NAME = NVWMIController;
+				WRAPPER_EXTENSION = kext;
+			};
+			name = Debug;
+		};
+		71F796651308578C00550733 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_MODEL_TUNING = G5;
+				INFOPLIST_FILE = "NVWMIController-Info.plist";
+				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions";
+				MODULE_NAME = com.yourcompany.driver.NVWMI;
+				MODULE_VERSION = 1.0.0d1;
+				PRODUCT_NAME = NVWMIController;
+				WRAPPER_EXTENSION = kext;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		71F7B44C12B6AB7500E8E523 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INFOPLIST_FILE = "EeePCWMIController-Info.plist";
+				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions";
+				MODULE_NAME = com.yourcompany.driver.EeePCWMIController;
+				MODULE_VERSION = 1.0.0d1;
+				PRODUCT_NAME = EeePCWMIController;
+				WRAPPER_EXTENSION = kext;
+			};
+			name = Debug;
+		};
+		71F7B44D12B6AB7500E8E523 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_MODEL_TUNING = G5;
+				INFOPLIST_FILE = "EeePCWMIController-Info.plist";
+				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions";
+				MODULE_NAME = com.yourcompany.driver.EeePCWMIController;
+				MODULE_VERSION = 1.0.0d1;
+				PRODUCT_NAME = EeePCWMIController;
+				WRAPPER_EXTENSION = kext;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB91D908733DB10010E9CD /* Build configuration list for PBXNativeTarget "IOWMIFamily" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB91DA08733DB10010E9CD /* Debug */,
+				1DEB91DB08733DB10010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB91DD08733DB10010E9CD /* Build configuration list for PBXProject "IOWMIFamily" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB91DE08733DB10010E9CD /* Debug */,
+				1DEB91DF08733DB10010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		712EDD9B142625DD00F4216A /* Build configuration list for PBXNativeTarget "DellWMIController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				712EDD9C142625DD00F4216A /* Debug */,
+				712EDD9D142625DD00F4216A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		712EDDB914263AF000F4216A /* Build configuration list for PBXNativeTarget "HPWMIController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				712EDDBA14263AF000F4216A /* Debug */,
+				712EDDBB14263AF000F4216A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		71F796661308578C00550733 /* Build configuration list for PBXNativeTarget "NVWMIController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71F796641308578C00550733 /* Debug */,
+				71F796651308578C00550733 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		71F7B44E12B6AB7500E8E523 /* Build configuration list for PBXNativeTarget "EeePCWMIController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71F7B44C12B6AB7500E8E523 /* Debug */,
+				71F7B44D12B6AB7500E8E523 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 089C1669FE841209C02AAC07 /* Project object */;
+}
